@@ -1,0 +1,19 @@
+[package]
+name = "dll_injection"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dll-syringe = '0.15.2'
+winapi = { version = '0.3.9', features = ['minwindef', 'winnt', 'handleapi','processthreadsapi', 'consoleapi', 'errhandlingapi', 'processenv', 'fileapi']}
+
+[lib]
+crate-type = ["cdylib"]
+src = "src/lib.rs"
+name = "injection_dll"
+
+[toolchain]
+channel = "nightly"
+targets = ["x86_64-pc-windows-msvc"]
